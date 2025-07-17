@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee           http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <display-name>ArtDent - Clínica Dental</display-name>
+    <description>Sistema de gestión para clínica dental ArtDent</description>
+    <!-- Página de bienvenida -->
+    <welcome-file-list>
+        <welcome-file>inicio</welcome-file>
+    </welcome-file-list>
+    <!-- Configuración de sesión -->
+    <servlet>
+        <servlet-name>SecretariaController</servlet-name>
+        <servlet-class>pe.edu.utp.controller.SecretariaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SecretariaControllers</servlet-name>
+        <servlet-class>pe.edu.utp.controller.SecretariaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>pe.edu.utp.controller.AdminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NotificacionController</servlet-name>
+        <servlet-class>pe.edu.utp.controller.NotificacionController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RucController</servlet-name>
+        <servlet-class>pe.edu.utp.controller.RucController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SecretariaController</servlet-name>
+        <url-pattern>/SecretariaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SecretariaControllers</servlet-name>
+        <url-pattern>/SecretariaControllers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/AdminController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificacionController</servlet-name>
+        <url-pattern>/NotificacionController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RucController</servlet-name>
+        <url-pattern>/RucController</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <!-- Configuración de páginas de error -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/error/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/views/error/403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/views/error/400.jsp</location>
+    </error-page>
+    <!-- Error genérico para excepciones no manejadas -->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/views/error/500.jsp</location>
+    </error-page>
+    <!-- Error para problemas de sesión -->
+    <error-page>
+        <exception-type>java.lang.IllegalStateException</exception-type>
+        <location>/WEB-INF/views/error/session-error.jsp</location>
+    </error-page>
+    <!-- Filtro de codificación UTF-8 -->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ignore</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>
